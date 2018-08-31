@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<otrs_package version="1.0">
+    <Name>Passcard</Name>
+    <Version>0.0.1</Version>
+    <Framework>6.x.x</Framework>
+    <Vendor>localhost</Vendor>
+    <URL>http://localhost/</URL>
+    <License>GNU AFFERO GENERAL PUBLIC LICENSE Version 3, November 2007</License>
+    <ChangeLog Version="0.0.1" Date="2018-08-129 12:51:21">New package.</ChangeLog>
+    <Description Lang="en">Access Control System.</Description>
+    <IntroInstall Type="post" Lang="en" Title="Thank you!">Thank you for choosing this module.</IntroInstall>
+    <BuildDate>?</BuildDate>
+    <BuildHost>?</BuildHost>
+    <Filelist>
+        <File Permission="644" Location="Kernel/Config/Files/XML/Passcard.xml"></File>
+        <File Permission="644" Location="Custom/Kernel/System/Passcard.pm"></File>
+        <File Permission="644" Location="Custom/Kernel/Modules/Passcard.pm"></File>
+        <File Permission="644" Location="Custom/Kernel/Output/HTML/Templates/Standard/Passcard.tt"></File>
+        <File Permission="644" Location="Kernel/GenericInterface/Operation/CustomerUser/PasscardCheck.pm"></File>
+        <File Permission="644" Location="Kernel/Language/ru_Passcard.pm"></File>
+    </Filelist>
+    <DatabaseInstall>
+        <TableCreate Name="passcard">
+            <Column Name="id" Required="true" PrimaryKey="true" AutoIncrement="true" Type="BIGINT"/>
+            <Column Name="customer" Required="true" Type="TEXT"/>
+            <Column Name="valid_duration" Required="true" Type="DATE"/>
+            <Column Name="access_json" Required="true" Type="TEXT"/>
+            <Column Name="valid_id" Required="true" Type="BIGINT"/>
+        </TableCreate>
+    </DatabaseInstall>
+    <DatabaseUninstall>
+        <TableDrop Name="calendar_event"/>
+    </DatabaseUninstall>
+</otrs_package>
