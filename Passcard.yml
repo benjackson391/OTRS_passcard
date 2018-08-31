@@ -1,0 +1,32 @@
+---
+Debugger:
+  DebugThreshold: debug
+  TestMode: '0'
+Description: ''
+FrameworkVersion: 6.0.10
+Provider:
+  Operation:
+    PasscardCheck:
+      Description: ''
+      IncludeTicketData: '0'
+      Type: CustomerUser::PasscardCheck
+    TicketGet:
+      Description: ''
+      IncludeTicketData: '0'
+      Type: Ticket::TicketGet
+  Transport:
+    Config:
+      AdditionalHeaders: ~
+      KeepAlive: ''
+      MaxLength: '9999999999'
+      RouteOperationMapping:
+        PasscardCheck:
+          RequestMethod:
+          - GET
+          - POST
+          Route: /PasscardCheck
+    Type: HTTP::REST
+RemoteSystem: ''
+Requester:
+  Transport:
+    Type: ''
